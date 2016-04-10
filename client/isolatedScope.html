@@ -7,16 +7,20 @@
     </li>
     <li>
         <h4>function-bind:</h4>
-        <span type="text" ng-bind="functionBind"></span>
-        <button ng-click="functionBind()">functionBind()</button>
-        <button ng-click="changeFunctionFromInside()">Change Function From Inside</button>
+        <span type="text" ng-bind="iso.functionBind"></span>
+        <button ng-click="iso.functionBind()">functionBind()</button>
+        <button ng-click="iso.changeFunctionFromInside()">Change Function From Inside</button>
         <p>*after pressing the "change function from inside", the child function is changed, and can't receive the parameter from wrapper's scope as well.  but the parent function is still the same</p>
     </li>
     <li>
         <h4>two-way-bind:</h4><input type="text" ng-model="twoWayBind"/><span>* this is a 2 way binding, changes here can affect wrapper's scope</span>
     </li>
     <li>
-        <h4>function-bind used to bind object:</h4><input type="text" ng-bind="objectBind.text"/>
+        <h4>function-bind used to bind object:</h4><input type="text" ng-bind="iso.objectBind.text"/>
         <p>the above is empty, the function bind can not be used to bind objects</p>
+    </li>
+    <li>
+        <h4>two-way-bind object:</h4><input type="text" ng-model="iso.twoWayBindObject.text"/>
+        <p>the 2 way bind can be used to bind objects</p>
     </li>
 </ul>

@@ -2,11 +2,19 @@
 Isolated Scope Test
 </head>
 <body>
-<ul ng-controller="isolatedScopeCtrl" class="well">
+<ul ng-controller="isolatedScopeCtrl as ctrl" class="well">
     <h3>this is the Wrapper scope</h3>
-    <li><h4>text</h4><input type="text" ng-model="text"/>*this is a text property of the wrapper, bound with '@' . This is a one way binding. changes from the isolated scope won't affect wrapper</li>
-    <li><h4>alertTextFunction</h4><button ng-click="alertTextFunction(text)">alertTextFunction</button>* this button trigger the 'func' function of the wrapper, bound with &amp;</li>
-    <li><h4>obj.text</h4><input type="text" ng-model="obj.text"/>* this is the 'obj' property of the wrapper, bound with &amp;</li>
-    <isolated-scope attr-text-bind="one way {{text}}" attr-function-bind="alertTextFunction(text)" attr-object-bind="obj.text" attr-two-way-bind="text"></isolated-scope>
+    <li>
+        <h4>text</h4>
+        <input type="text" ng-model="ctrl.text"/>*this is a text property of the wrapper, bound with '@' . This is a one way binding. changes from the isolated scope won't affect wrapper
+    </li>
+    <li>
+        <h4>alertTextFunction</h4><button ng-click="ctrl.alertTextFunction(ctrl.text)">alertTextFunction</button>* this button trigger the 'func' function of the wrapper, bound with &amp;
+    </li>
+    <li>
+        <h4>obj.text</h4>
+        <input type="text" ng-model="ctrl.obj.text"/>* this is the 'obj' property of the wrapper, bound with &amp;       </li>
+    <isolated-scope attr-text-bind="one way {{ctrl.text}}" attr-function-bind="ctrl.alertTextFunction(ctrl.text)" attr-object-bind="ctrl.obj.text" attr-two-way-bind="ctrl.text" attr-two-way-bind-object="ctrl.obj">
+    </isolated-scope>
 </ul>
 </body>
