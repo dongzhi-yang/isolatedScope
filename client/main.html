@@ -1,0 +1,12 @@
+<head>
+Isolated Scope Test
+</head>
+<body>
+<ul ng-controller="isolatedScopeCtrl" class="well">
+    <h3>this is the Wrapper scope</h3>
+    <li><h4>text</h4><input type="text" ng-model="text"/>*this is a text property of the wrapper, bound with '@' . This is a one way binding. changes from the isolated scope won't affect wrapper</li>
+    <li><h4>alertTextFunction</h4><button ng-click="alertTextFunction(text)">alertTextFunction</button>* this button trigger the 'func' function of the wrapper, bound with &amp;</li>
+    <li><h4>obj.text</h4><input type="text" ng-model="obj.text"/>* this is the 'obj' property of the wrapper, bound with &amp;</li>
+    <isolated-scope attr-text-bind="one way {{text}}" attr-function-bind="alertTextFunction(text)" attr-object-bind="obj.text" attr-two-way-bind="text"></isolated-scope>
+</ul>
+</body>

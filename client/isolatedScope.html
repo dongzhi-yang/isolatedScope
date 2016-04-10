@@ -1,0 +1,22 @@
+<ul class="well">
+      <h3>this is the Isolated scope</h3>
+    <li>
+       <h4>text-bind:</h4>
+        <input type="text" ng-model="textBind"/>
+        <span>*this is one way bound, changes here won't affect the wrapper's scope</span>
+    </li>
+    <li>
+        <h4>function-bind:</h4>
+        <span type="text" ng-bind="functionBind"></span>
+        <button ng-click="functionBind()">functionBind()</button>
+        <button ng-click="changeFunctionFromInside()">Change Function From Inside</button>
+        <p>*after pressing the "change function from inside", the child function is changed, and can't receive the parameter from wrapper's scope as well.  but the parent function is still the same</p>
+    </li>
+    <li>
+        <h4>two-way-bind:</h4><input type="text" ng-model="twoWayBind"/><span>* this is a 2 way binding, changes here can affect wrapper's scope</span>
+    </li>
+    <li>
+        <h4>function-bind used to bind object:</h4><input type="text" ng-bind="objectBind.text"/>
+        <p>the above is empty, the function bind can not be used to bind objects</p>
+    </li>
+</ul>
